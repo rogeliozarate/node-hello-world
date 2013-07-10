@@ -1,11 +1,10 @@
 
 var http = require("http");
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(8080, "127.0.0.1");
 
-http.createServer(function (request,response){
-  request.on("end", function() {
-	  response.writeHead(200, {
-		  'Content-Type': 'text/plain'
-		      });
-	  response.end('Hello HTTP!');
-      });
-    }).listen(8080);
+console.log('Server running at http://127.0.0.1:8080/');
+
+console.log('Server ends!');
